@@ -33,11 +33,13 @@ export default {
         .then(response => {
           const responseData = response.data;
           console.log(responseData);
-          // Si el inicio de sesión es exitoso, puedes redirigir al usuario a la página de inicio
-          if (responseData.login) {
-            this.$router.push('/home');
+          // If login is successful, redirect the user to the homepage
+          if (responseData.sys.login) {
+           this.$router.push('/HomeView');
           } else {
-            // Manejar el caso de inicio de sesión fallido
+          alert('Login failed');
+            // Handle login failure           
+             // Display an alert or show an error message on the screen
           }
         })
         .catch(error => {
@@ -47,5 +49,3 @@ export default {
   }
 };
 </script>
-
-
